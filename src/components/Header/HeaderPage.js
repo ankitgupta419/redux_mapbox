@@ -10,25 +10,13 @@ class Header extends Component{
 		super(props);
 		this.state={
 			showProfilePanel:false
-			
 		}
-		
-		
 	}
 	seeProfilePanel(){
 		this.props.actions.showProfileBar(!this.props.isShowProfile);
-		// this.setState({
-		// 	showProfilePanel:true
-		// })
 	}
-	// logout(){
-	// 	this.setState({
-	// 		showProfilePanel:false
-	// 	})
-	// }
 	render(){
 		const getUser=this.props.getUser
-		// const profilePic={}
 		return(
 			<div className="headerContainer">
 				<div className="headerContent">
@@ -41,7 +29,6 @@ class Header extends Component{
 					<div className="clr"></div>
 				</div>
 				<div className="headerEmptyBorderDiv"></div>
-				
 			</div>
 		);
 	}

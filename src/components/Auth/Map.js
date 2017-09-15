@@ -13,10 +13,8 @@ const Map = ReactMapboxGl({
 		  accessToken: "pk.eyJ1IjoiYW5raXRndXB0YTQxOSIsImEiOiJjajdpdWZkdzkwOGNnMzNxbjR6ZWVyMWtiIn0.q99xK5UnMWzfwlPu3FMk_w"
 		});
 class MapView extends Component{
-	
 	constructor(props){
 		super(props);
-		
 		this.state={
 			showBar:false,
 			directions:{},
@@ -29,12 +27,9 @@ class MapView extends Component{
 		if(!this.props.children){
 			this.context.router.push('/viewMap')
 		}
-		
-		
 	}
 	componentWillReceiveProps(props){
 		// console.log("gettt",props.selectedVenue)
-
 		if(props.removedVenue!=null){
 			let index=null
 			// console.log("gettt",props.selectedVenue)
@@ -69,18 +64,15 @@ class MapView extends Component{
        let directions=this.state.directions
        let addDirections=this.state.addDirections
        let venueValue=this.refs.venue.value
-	  let latlan={
-	  	venue:venueValue,
-	  	lat:directions.lat,
-	  	lng:directions.lng
-	  	
-	  }
+	   let latlan={
+		  	venue:venueValue,
+		  	lat:directions.lat,
+		  	lng:directions.lng
+	    }
 	  	addDirections.push(latlan)
-
         this.setState({
 		  	 showBar:false,
-		  	 addDirections
-		  	 
+		  	 addDirections 
 		})
         this.props.addVenueSuccess(venueValue,this.state.directions)
         this.props.removeVenueByName(null)
@@ -88,20 +80,14 @@ class MapView extends Component{
 	close(){
 		 this.setState({
 		  	 showBar:false,
-		  	 
 		  })
-	}
-	touchItem(){
-		// console.log("touch")
 	}
 	render(){
 		let self=this
-		// let mapBox=this.props.mapBox
 		return(
 			<div className="appContainer">
 				<div className="viewContent"><ViewAreas /></div>
 				<div className="mapContainer">
-					
 					<div className="mapDesign"> 
 						<Map
 						  style="mapbox://styles/mapbox/streets-v9"
@@ -113,9 +99,7 @@ class MapView extends Component{
 						  >
 						  {
 						  	this.state.addDirections.map((item,index)=>
-					  			
 					  			{
-					  				
 					  				return(
 					  					<div key={index}>
 						  					<Marker
@@ -143,12 +127,10 @@ class MapView extends Component{
 							<div className="clr"></div>
 						</div>
 					</If>
-				    
+				    <div className="clr"></div>
 				</div>
 				<div className="clr"></div>
-				
 			</div>
-		   
 		);
 	}
 }

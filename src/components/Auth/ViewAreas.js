@@ -4,10 +4,8 @@ import {default as If} from '../Functionals/If';
 import optionsImg from '../../images/options.png';
 import * as mapActions from '../../actions/mapActions';
 class ViewAreas extends Component{
-	
 	constructor(props){
 		super(props);
-		
 		this.state={
 			currIndex:null
 		}
@@ -17,7 +15,6 @@ class ViewAreas extends Component{
 	componentDidMount() {
         document.addEventListener('mousedown', this.handleClickOutside);
     }
-
     componentWillUnmount() {
         document.removeEventListener('mousedown', this.handleClickOutside);
     }
@@ -38,7 +35,6 @@ class ViewAreas extends Component{
 		})
 	}
 	removePlace(place){
-        
         this.props.removeVenue(place)
         this.props.removeVenueByName(place)
 	}
@@ -95,6 +91,4 @@ function mapStateToProps(state) {
   };
   
 }
-
-
 export default connect(mapStateToProps,mapActions )(ViewAreas);
